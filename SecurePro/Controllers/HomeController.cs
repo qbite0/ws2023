@@ -22,6 +22,18 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    [HttpPost]
+    public Task Ticket()
+    {
+        Response.ContentType = "text/html; charset=utf-8";
+        
+        var form = Request.Form;
+        
+        return Response.WriteAsync($"<div><p>Имя: {form["firstname"]}</p>" +
+                                   $"<p>Фамилия: {form["lastname"]}</p>" +
+                                   $"<div>Отчество:{form["patronymic"]}</div></div>");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
