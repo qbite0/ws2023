@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityOfficerTerminal", "SecurityOfficerTerminal\SecurityOfficerTerminal.csproj", "{681C8206-0343-435C-B2FD-91A3A5E0C291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityOfficerTerminal", "SecurityOfficerTerminal\SecurityOfficerTerminal.csproj", "{681C8206-0343-435C-B2FD-91A3A5E0C291}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7FC94556-D65A-46AA-8D1C-6A7B19976120} = {7FC94556-D65A-46AA-8D1C-6A7B19976120}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{E87671EE-A37C-4A4B-8F5F-48ED8CB1ACBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{7FC94556-D65A-46AA-8D1C-6A7B19976120}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{7FC94556-D65A-46AA-8D1C-6A7B19976120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralEmployeeTerminal", "GeneralEmployeeTerminal\GeneralEmployeeTerminal.csproj", "{A3D6648B-4B75-4DAB-A8B3-B1C024AB03BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralEmployeeTerminal", "GeneralEmployeeTerminal\GeneralEmployeeTerminal.csproj", "{A3D6648B-4B75-4DAB-A8B3-B1C024AB03BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7FC94556-D65A-46AA-8D1C-6A7B19976120} = {7FC94556-D65A-46AA-8D1C-6A7B19976120}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
