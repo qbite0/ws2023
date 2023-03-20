@@ -18,6 +18,12 @@ namespace Api.Controllers {
             return Ok(await _databaseContext.Tickets.ToListAsync());
         }
 
+        [HttpGet]
+        [Route("Approved")]
+        public async Task<IActionResult> GetApprovedTickets() {
+            return Ok(await _databaseContext.Tickets.Where(t => t.Approved).ToListAsync());
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddTicket(AddTicketResponse addTicketDTO) {
             var ticket = addTicketDTO.ToTicket();
@@ -26,6 +32,21 @@ namespace Api.Controllers {
             await _databaseContext.SaveChangesAsync();
 
             return Ok(ticket);
+        }
+
+        [HttpPut]
+        [Route("Approve/{id:guid}")]
+        public async Task<IActionResult> ApproveTicket([FromRoute] Guid id) {
+            var ticket = await _databaseContext.Tickets.FindAsync(id);
+
+            if (ticket == null) {
+                return NotFound();
+            } else {
+                ticket.Approved = true;
+                await _databaseContext.SaveChangesAsync();
+
+                return Ok(ticket);
+            }
         }
     }
 }

@@ -1,26 +1,13 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using System;
-using Avalonia.Controls;
+﻿using System;
 using ReactiveUI;
 using MessageBox.Avalonia;
 using GeneralEmployeeTerminal.Views;
+using GeneralEmployeeTerminal.Models;
 
 namespace GeneralEmployeeTerminal.ViewModels
 {
     public class AuthViewModel : ViewModelBase
     {
-        const string API_URL = "https://localhost:7287";
-
-        private async Task<bool> IsEmployeeExistsAsync(Guid id)
-        {
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetAsync($"{API_URL}/api/Employee/{id}");
-                return response.IsSuccessStatusCode;
-            }
-        }
-
         private string _searchTerm;
         public string SearchTerm
         {
@@ -30,7 +17,7 @@ namespace GeneralEmployeeTerminal.ViewModels
 
         public async void ButtonClickedAsync()
         {
-            var result = await IsEmployeeExistsAsync(Guid.Parse(SearchTerm));
+            var result = await ApiClient.IsEmployeeExistsAsync(Guid.Parse(SearchTerm));
             if (result == true)
             {
                 var model = new MainWindow();

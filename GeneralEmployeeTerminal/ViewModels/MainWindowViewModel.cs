@@ -1,18 +1,21 @@
-﻿using ReactiveUI;
+﻿using System.Collections.ObjectModel;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
+using AvaloniaEdit.Utils;
+using GeneralEmployeeTerminal.Models;
+using ReactiveUI;
 
 namespace GeneralEmployeeTerminal.ViewModels {
     public class MainWindowViewModel : ViewModelBase {
-        public string Greeting => "Welcome to Avalonia!";
+        public ObservableCollection<Ticket> Tickets { get; }
 
         public MainWindowViewModel() {
-            var ShowDialog = new Interaction<MainWindowViewModel, AuthViewModel?>();
+            Tickets = new ObservableCollection<Ticket>();
+            RxApp.MainThreadScheduler.Schedule(LoadTickets);
+        }
 
-            /*BuyMusicCommand = ReactiveCommand.CreateFromTask(async () =>
-            {
-                var store = new MusicStoreViewModel();
-
-                var result = await ShowDialog.Handle(store);
-            });*/
+        private async void LoadTickets() {
+            Tickets.AddRange(await ApiClient.GetTickets());
         }
     }
 }

@@ -36,7 +36,8 @@
                 Note = Note,
                 Bday = Bday,
                 PassportNumber = PassportNumber,
-                PassportSeries = PassportSeries
+                PassportSeries = PassportSeries,
+                Approved = false
             };
     }
 }

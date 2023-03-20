@@ -46,7 +46,8 @@ namespace Api.Migrations
                     Note = table.Column<string>(type: "text", nullable: false),
                     Bday = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     PassportSeries = table.Column<string>(type: "text", nullable: false),
-                    PassportNumber = table.Column<string>(type: "text", nullable: false)
+                    PassportNumber = table.Column<string>(type: "text", nullable: false),
+                    Approved = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {

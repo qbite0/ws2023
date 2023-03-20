@@ -59,6 +59,9 @@ namespace Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<bool>("Approved")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTime>("Bday")
                         .HasColumnType("timestamp with time zone");
 

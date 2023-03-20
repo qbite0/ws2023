@@ -3,7 +3,7 @@
         xmlns:vm="using:SecurityOfficerTerminal.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="450"
         x:Class="SecurityOfficerTerminal.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -15,6 +15,20 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+	<Grid>
+		<DataGrid Items="{Binding People}" AutoGenerateColumns="False" >
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID"  Binding="{Binding Id}"/>
+				<DataGridTextColumn Header="С"  Binding="{Binding From}"/>
+				<DataGridTextColumn Header="По"  Binding="{Binding To}"/>
+				<DataGridTextColumn Header="Назначение"  Binding="{Binding Purpose}"/>
+				<DataGridTextColumn Header="Отдел"  Binding="{Binding Division}"/>
+				<DataGridTextColumn Header="ФИО"  Binding="{Binding Fullname}"/>
+				<DataGridTextColumn Header="Фамилия"  Binding="{Binding Lastname}"/>
+				<DataGridTextColumn Header="Имя"  Binding="{Binding Firstname}"/>
+				<DataGridTextColumn Header="Отчество"  Binding="{Binding Patronymic}"/>
+				<DataGridTextColumn Header="Одобрена"  Binding="{Binding Approved}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</Grid>
 </Window>

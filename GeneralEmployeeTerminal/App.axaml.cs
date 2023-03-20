@@ -12,8 +12,8 @@ namespace GeneralEmployeeTerminal {
 
         public override void OnFrameworkInitializationCompleted() {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
-                desktop.MainWindow = new Auth {
-                    DataContext = new AuthViewModel(),
+                desktop.MainWindow = new MainWindow {
+                    DataContext = new MainWindowViewModel(),
                 };
             }
 

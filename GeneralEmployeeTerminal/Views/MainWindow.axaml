@@ -16,7 +16,19 @@
     </Design.DataContext>
 
 	<Grid>
-		<TextBlock>wellcome</TextBlock>
+		<DataGrid Items="{Binding Tickets}" AutoGenerateColumns="False" >
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID"  Binding="{Binding Id}"/>
+				<DataGridTextColumn Header="С"  Binding="{Binding From}"/>
+				<DataGridTextColumn Header="По"  Binding="{Binding To}"/>
+				<DataGridTextColumn Header="Назначение"  Binding="{Binding Purpose}"/>
+				<DataGridTextColumn Header="Отдел"  Binding="{Binding Division}"/>
+				<DataGridTextColumn Header="ФИО"  Binding="{Binding Fullname}"/>
+				<DataGridTextColumn Header="Фамилия"  Binding="{Binding Lastname}"/>
+				<DataGridTextColumn Header="Имя"  Binding="{Binding Firstname}"/>
+				<DataGridTextColumn Header="Отчество"  Binding="{Binding Patronymic}"/>
+				<DataGridCheckBoxColumn Header="Одобрена"  Binding="{Binding Approved}"/>
+			</DataGrid.Columns>
+		</DataGrid>
 	</Grid>
-
 </Window>

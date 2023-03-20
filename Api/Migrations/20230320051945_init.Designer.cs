@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230314025512_init")]
+    [Migration("20230320051945_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -61,6 +61,9 @@ namespace Api.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<bool>("Approved")
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("Bday")
                         .HasColumnType("timestamp with time zone");

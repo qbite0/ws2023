@@ -1,4 +1,6 @@
-﻿namespace Api.Models {
+﻿using System;
+
+namespace GeneralEmployeeTerminal.Models {
     public class Ticket {
         public Guid Id { get; set; }
         public DateTime From { get; set; }
