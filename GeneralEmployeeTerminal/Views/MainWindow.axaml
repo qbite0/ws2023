@@ -16,7 +16,7 @@
     </Design.DataContext>
 
 	<Grid>
-		<DataGrid Items="{Binding Tickets}" AutoGenerateColumns="False" >
+		<DataGrid Name="datagrid1" Items="{Binding Tickets}" AutoGenerateColumns="False" >
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="ID"  Binding="{Binding Id}"/>
 				<DataGridTextColumn Header="С"  Binding="{Binding From}"/>
