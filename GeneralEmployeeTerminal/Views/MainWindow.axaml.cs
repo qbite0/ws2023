@@ -1,8 +1,8 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using GeneralEmployeeTerminal.Models;
-using MessageBox.Avalonia;
-using System;
+using GeneralEmployeeTerminal.ViewModels;
 
 namespace GeneralEmployeeTerminal.Views {
     public partial class MainWindow : Window {
@@ -12,11 +12,9 @@ namespace GeneralEmployeeTerminal.Views {
             datagrid1.DoubleTapped += Handler;
         }
 
-        private void Handler(object? sender, RoutedEventArgs e)
-        {
-            Ticket ticket = (Ticket)datagrid1.SelectedItem;
+        private void Handler(object? sender, RoutedEventArgs e) {
             var infoWin = new TicketInfoWindow();
-            infoWin.DataContext = ticket;
+            infoWin.DataContext = new TicketInfoViewModel((Ticket)datagrid1.SelectedItem);
             infoWin.Show();
         }
     }

@@ -2,13 +2,61 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" Width="400" Height="200"
+        mc:Ignorable="d" Width="500" Height="600"
         x:Class="GeneralEmployeeTerminal.Views.TicketInfoWindow"
-        Title="TicketInfoWindow">
-	<StackPanel>
-		<TextBlock Text="{Binding Id}"></TextBlock>
-		<TextBlock Text="{Binding Firstname}"></TextBlock>
-		<TextBlock Text="{Binding Lastname}"></TextBlock>
-		<TextBlock Text="{Binding Patronymic}"></TextBlock>
-	</StackPanel>
+        Title="ХранительПРО - Информация о заявке">
+	<Grid Margin="10" ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+		<TextBlock Grid.Column="0" Grid.Row="0">ID:</TextBlock>
+		<TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Ticket.Id}"></TextBlock>
+		
+		<TextBlock Grid.Column="0" Grid.Row="1">С:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Ticket.From}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="2">По:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Ticket.To}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="3">Цель:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Ticket.Purpose}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="4">Отдел:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Ticket.Division}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="5">ФИО:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Ticket.Fullname}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="6">Фамилия:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Ticket.Lastname}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="7">Имя:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="7" Text="{Binding Ticket.Firstname}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="8">Отчество:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="8" Text="{Binding Ticket.Patronymic}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="9">Телефон:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Ticket.Phone}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="10">Почта:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Ticket.Email}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="11">Органиазция:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Ticket.Organization}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="12">Примечание:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Ticket.Note}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="13">День рождения:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="13" Text="{Binding Ticket.Bday}"></TextBox>
+
+		<TextBlock Grid.Column="0" Grid.Row="14">Номер паспорта:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="14" Text="{Binding Ticket.PassportNumber}"></TextBox>
+		
+		<TextBlock Grid.Column="0" Grid.Row="15">Серия паспорта:</TextBlock>
+		<TextBox Grid.Column="1" Grid.Row="15" Text="{Binding Ticket.PassportSeries}"></TextBox>
+		
+		<TextBlock Grid.Column="0" Grid.Row="16">Одобрена:</TextBlock>
+		<CheckBox Grid.Column="1" Grid.Row="16" IsChecked="{Binding Ticket.Approved}" />
+
+		<Button Grid.Row="17" Command="{Binding SaveTicketCommand}">Сохранить</Button>
+	</Grid>
 </Window>

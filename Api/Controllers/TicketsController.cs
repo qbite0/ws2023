@@ -35,14 +35,14 @@ namespace Api.Controllers {
         }
 
         [HttpPut]
-        [Route("Approve/{id:guid}")]
-        public async Task<IActionResult> ApproveTicket([FromRoute] Guid id) {
+        [Route("{id:guid}")]
+        public async Task<IActionResult> EditTicket([FromRoute] Guid id, EditTicketResponse editTicketDTO) {
             var ticket = await _databaseContext.Tickets.FindAsync(id);
 
             if (ticket == null) {
                 return NotFound();
             } else {
-                ticket.Approved = true;
+                _databaseContext.Entry(ticket).CurrentValues.SetValues(editTicketDTO.ToTicket(id));
                 await _databaseContext.SaveChangesAsync();
 
                 return Ok(ticket);

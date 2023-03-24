@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +23,16 @@ namespace GeneralEmployeeTerminal.Models {
                 response.EnsureSuccessStatusCode();
 
                 return await response.Content.ReadAsAsync<Ticket[]>();
+            }
+        }
+
+        public static async Task<Ticket> EditTicket(Ticket ticket) {
+            using (var client = new HttpClient()) {
+                var response = await client.PutAsJsonAsync($"{API_URL}/api/Tickets/{ticket.Id}", EditTicketResponse.FromTicket(ticket));
+
+                response.EnsureSuccessStatusCode();
+
+                return await response.Content.ReadAsAsync<Ticket>();
             }
         }
     }
